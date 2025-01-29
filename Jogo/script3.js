@@ -67,15 +67,15 @@ function checkMatch() {
 
 // Função para reiniciar o jogo
 function restartGame() {
-  matchedCards = 0;
-  flippedCards = [];
-  cards.forEach(card => {
-    card.classList.remove('flipped', 'matched');
-    card.innerText = ''; // Reseta os símbolos
-  });
-  board.innerHTML = '';
-  createCards();
-}
+    matchedCards = 0;
+    flippedCards = [];
+    cards.forEach(card => {
+      card.classList.remove('flipped', 'matched');
+      card.style.backgroundImage = 'url("https://via.placeholder.com/100x100")'; // Reseta o fundo
+    });
+    board.innerHTML = '';  // Limpa o tabuleiro
+    createCards();         // Recria as cartas embaralhadas
+  }
 
 restartButton.addEventListener('click', restartGame);
 
