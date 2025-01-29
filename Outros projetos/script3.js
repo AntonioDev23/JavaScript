@@ -7,39 +7,21 @@ let matchedCards = 0;
 
 // Função para gerar as cartas
 function createCards() {
-  board.innerHTML = ''; // Limpa o tabuleiro antes de criar novas cartas
-  cards = []; // Resetando a lista de cartas
+    const cardValues = [
+        '🍎', '🍌', '🍒', '🍓', '🍍', '🍑', '🍉', '🍊', // Emojis de frutas como símbolos
+        '🍎', '🍌', '🍒', '🍓', '🍍', '🍑', '🍉', '🍊', // Duplicando para os pares
+    ];
+  const cardDeck = [...cardValues]; // Cartas já duplicadas para formar pares
 
-  const cardValues = [
-    'imagens/card1.png', 
-    'imagens/card2.png',
-    'imagens/card3.png',
-    'imagens/card4.png',
-    'imagens/card5.png',
-    'imagens/card6.png',
-    'imagens/card7.png',
-    'imagens/card8.png',    
-  ];
-  
-  const cardDeck = [...cardValues, ...cardValues]; // Duplicando as cartas
-  cardDeck.sort(() => Math.random() - 0.5); // Embaralha as cartas
+  // Embaralha as cartas
+  cardDeck.sort(() => Math.random() - 0.5);
 
-  // Criando as cartas
+  // Cria as cartas HTML
   cardDeck.forEach(value => {
     const card = document.createElement('div');
     card.classList.add('card');
     card.dataset.value = value;
-
-    const frontFace = document.createElement('div');
-    frontFace.classList.add('front-face');
-
-    const backFace = document.createElement('div');
-    backFace.classList.add('back-face');
-    backFace.style.backgroundImage = `url("${value}")`; // Define a imagem da carta
-
-    card.appendChild(frontFace);
-    card.appendChild(backFace);
-    
+    card.innerText = ''; // Inicialmente, as cartas não têm símbolo visível
     card.addEventListener('click', flipCard);
     board.appendChild(card);
     cards.push(card);
@@ -48,11 +30,12 @@ function createCards() {
 
 // Função para virar as cartas
 function flipCard() {
-  if (flippedCards.length === 2 || this.classList.contains('flipped')) return;
-
+  if (flippedCards.length === 2) return; // Impede virar mais de 2 cartas por vez
   this.classList.add('flipped');
+  this.innerText = this.dataset.value; // Mostra o símbolo da carta virada
   flippedCards.push(this);
 
+  // Verifica se as cartas viradas são iguais
   if (flippedCards.length === 2) {
     setTimeout(checkMatch, 1000);
   }
@@ -61,20 +44,24 @@ function flipCard() {
 // Função para verificar se as cartas combinam
 function checkMatch() {
   const [card1, card2] = flippedCards;
-  
   if (card1.dataset.value === card2.dataset.value) {
     card1.classList.add('matched');
     card2.classList.add('matched');
     matchedCards++;
   } else {
-    card1.classList.remove('flipped');
-    card2.classList.remove('flipped');
+    // Não usar setTimeout aqui, virar as cartas imediatamente
+    setTimeout(() => {
+      card1.classList.remove('flipped');
+      card2.classList.remove('flipped');
+      card1.innerText = ''; // Esconde o símbolo imediatamente
+      card2.innerText = ''; // Esconde o símbolo imediatamente
+    }, 0); // Agora a carta vira instantaneamente
   }
-
   flippedCards = [];
 
+  // Se todas as cartas forem combinadas, o jogo acaba
   if (matchedCards === cards.length / 2) {
-    setTimeout(() => alert('Você ganhou! 🎉'), 500);
+    setTimeout(() => alert('Você ganhou!'), 500);
   }
 }
 
@@ -82,6 +69,11 @@ function checkMatch() {
 function restartGame() {
   matchedCards = 0;
   flippedCards = [];
+  cards.forEach(card => {
+    card.classList.remove('flipped', 'matched');
+    card.innerText = ''; // Reseta os símbolos
+  });
+  board.innerHTML = '';
   createCards();
 }
 
