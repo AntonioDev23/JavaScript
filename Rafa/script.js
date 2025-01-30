@@ -23,4 +23,6 @@ function adicionarTarefa() {
   
     // Limpa o campo de input
     inputTarefa.value = "";
+    
+    
   }
