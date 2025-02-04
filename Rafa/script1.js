@@ -1,7 +1,7 @@
 
 function aparecePrompt() {
     let area =  prompt (" Escolha a opção: 1- se deseja seguir a área de front-end ou 2- para back-end")
-    console.log(area)
+    
 
     if(area == "1") {
       let techFront = prompt("Escolha a opção 1- se você quer aprender React ou 2- se quer aprender Vue")
