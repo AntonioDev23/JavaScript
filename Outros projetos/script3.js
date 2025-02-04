@@ -35,8 +35,9 @@ function sendMessage() {
   
   // Função para gerar a resposta do chatbot
   function getBotResponse(userInput) {
-    const lowerInput = userInput.toLowerCase();
+    const lowerInput = userInput.toLowerCase(); // Converte a entrada para minúsculas
   
+    // Respostas baseadas em palavras-chave mais específicas
     if (lowerInput.includes('olá') || lowerInput.includes('oi')) {
       return "Olá! Como posso te ajudar?";
     } else if (lowerInput.includes('tudo bem') || lowerInput.includes('como vai')) {
@@ -45,8 +46,20 @@ function sendMessage() {
       return "Sou um chatbot simples feito para conversar com você!";
     } else if (lowerInput.includes('tchau')) {
       return "Tchau! Espero ter ajudado.";
+    } else if (lowerInput.includes('quantos anos você tem') || lowerInput.includes('idade')) {
+      return "Eu sou atemporal! Não tenho idade.";
+    } else if (lowerInput.includes('onde você mora')) {
+      return "Eu não tenho um lugar fixo, vivo na internet!";
     } else {
-      return "Desculpe, não entendi sua mensagem.";
+      return "Desculpe, não entendi sua mensagem. Você pode reformular?";
     }
   }
   
+  // Evento para capturar pressionamento da tecla Enter
+  document.getElementById("userInput").addEventListener("keypress", function(event) {
+    // Verifica se a tecla pressionada foi Enter
+    if (event.key === "Enter") {
+      event.preventDefault();  // Impede o comportamento padrão do Enter (como enviar o formulário)
+      sendMessage();  // Envia a mensagem
+    }
+  });
