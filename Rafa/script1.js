@@ -7,7 +7,7 @@ function aparecePrompt() {
       let techFront = prompt("Escolha a opção 1- se você quer aprender React ou 2- se quer aprender Vue")
       console.log(techFront)
     }
-    else if (area == "back-end") {
+    else if (area == "2") {
        let techBack = prompt("Escolha a opção 1- se você quer aprender C# ou 2- se quer aprender Java?")
        console.log(techBack)
     }
