@@ -1,1 +1,0 @@
-let chave = "nome"; console.log(pessoa[chave]); // "Neto" 

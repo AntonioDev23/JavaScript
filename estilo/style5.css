@@ -7,12 +7,12 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f0f0f0;
+    background-color: #262525;
 }
 .chat-container {
     width: 300px;
     height: 400px;
-    background-color: white;
+    background-color: rgb(120, 9, 130);
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: flex;
@@ -30,11 +30,11 @@ body {
     border-radius: 5px;
 }
 .user {
-    background-color: #d1f7d1;
+    background-color: #edf188;
     align-self: flex-end;
 }
 .bot {
-    background-color: #f7d1d1;
+    background-color: #f5f4f4;
     align-self: flex-start;
 }
 .input-container {
@@ -51,10 +51,10 @@ button {
     padding: 10px;
     border-radius: 5px;
     border: none;
-    background-color: #4CAF50;
+    background-color: #f04dcd;
     color: white;
     cursor: pointer;
 }
 button:hover {
-    background-color: #45a049;
+    background-color: #ce33ad;
 }
