@@ -8,20 +8,17 @@
         body {
             font-family: Arial, sans-serif;
             background-color: bisque;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
         }
         h1 {
             text-align: center;
         }
-        #t1, #t2 {
-            align-items: center;
-            display: flex;
-            justify-content: center;
-            width: 100px;
-            height: 30px;
-            
-        }
         input[type="button"] {
             background-color: blueviolet;
+            margin-top: 10px;
         }
         input[type="button"]:hover {
             background-color: rgb(177, 118, 231);
@@ -29,7 +26,7 @@
     </style>
 </head>
 <body>
-    <h1>Somando Valores</h1>
+    <h1>Somando Valores </h1>
     <input type="number" name="t1" id="t1"> +
     <input type="number" name="t2" id="t2">
     <input type="button" value="somar" onclick="somar()">
