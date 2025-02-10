@@ -17,9 +17,23 @@
 </head>
 <body>
     
-    <div id="area">Interaja</div>
+    <div id="area" >Interaja</div>
     <script>
-        
+         let a = document.querySelector("#area")
+         a.addEventListener('click', clicar)
+         a.addEventListener('mouseenter', entrou)
+         a.addEventListener('mouseout', saiu)
+
+        function clicar() {
+            a.innerText = 'Clicou'
+            a.style.backgroundColor = 'pink'
+        }
+        function entrou() {
+            a.innerText = 'Entrou'
+        }
+        function saiu() {
+            a.innerText = 'Saiu'
+        }
     </script>
 </body>
 </html>
