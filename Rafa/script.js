@@ -3,15 +3,15 @@ let tarefas = []; // Lista global para armazenar as tarefas
 
 function adicionarTarefa() {
     let inputTarefa = document.getElementById("inputTarefa");
-    let tarefa = inputTarefa.value.trim(); // O `trim()` remove espaços em branco no início e no final
-  
+    let tarefa = inputTarefa.value.trim();
+
     let mensagemElemento = document.getElementById("mensagem");
 
     // Verificar se o campo está vazio
     if (tarefa === "") {
         mensagemElemento.textContent = "Por favor, digite uma tarefa!";
-        mensagemElemento.style.color = "red"; // Define a cor vermelha
-        return; // Impede de continuar com a função
+        mensagemElemento.style.color = "red";
+        return;
     }
 
     // Adiciona a tarefa na lista
@@ -19,7 +19,7 @@ function adicionarTarefa() {
 
     // Atualiza a mensagem de sucesso
     mensagemElemento.textContent = "Tarefa adicionada com sucesso!";
-    mensagemElemento.style.color = "green"; // Define a cor verde
+    mensagemElemento.style.color = "green";
 
     // Atualiza a lista na tela
     atualizarLista();
@@ -30,14 +30,28 @@ function adicionarTarefa() {
 
 function atualizarLista() {
     let listaTarefas = document.getElementById("listaTarefas");
-    listaTarefas.innerHTML = ""; // Limpa a lista antes de recriá-la
+    listaTarefas.innerHTML = "";
 
-    // Percorre todas as tarefas e adiciona na tela
     for (let i = 0; i < tarefas.length; i++) {
         let novaTarefa = document.createElement("li");
         novaTarefa.textContent = tarefas[i];
         listaTarefas.appendChild(novaTarefa);
     }
 }
+
+function limparLista() {
+    tarefas = []; // Zera a lista de tarefas
+    atualizarLista(); // Atualiza a tela para remover os itens
+    document.getElementById("mensagem").textContent = "Lista limpa!";
+    document.getElementById("mensagem").style.color = "blue";
+}
+
+// Adicionar evento para a tecla "Enter"
+document.getElementById("inputTarefa").addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        adicionarTarefa();
+    }
+});
+
 
 

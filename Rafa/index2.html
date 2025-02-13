@@ -10,12 +10,14 @@
   <div class="container">
     <h1>Lista de Tarefas</h1>
     <p>Adicione suas tarefas!</p>
-    <input type="text" id="inputTarefa"  autocomplete="off" required placeholder="Digite a sua tarefa">
+    <input type="text" id="inputTarefa" autocomplete="off" required placeholder="Digite a sua tarefa">
     <button onclick="adicionarTarefa()">Adicionar Tarefa</button>
+    <button onclick="limparLista()">Limpar Lista</button> <!-- Botão para limpar a lista -->
     <p id="mensagem"></p>
     <ul id="listaTarefas"></ul>
-  </div>
+</div>
 
-  <script src="script.js"></script>
+
+  <script src="script.js" defer></script>
 </body>
 </html>
