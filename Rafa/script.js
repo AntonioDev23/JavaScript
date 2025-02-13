@@ -14,6 +14,15 @@ function adicionarTarefa() {
         return;
     }
 
+    // Verificar se a tarefa já existe na lista (case insensitive)
+    let tarefaExiste = tarefas.some(t => t.toLowerCase() === tarefa.toLowerCase());
+
+    if (tarefaExiste) {
+        mensagemElemento.textContent = "Tarefa já adicionada!";
+        mensagemElemento.style.color = "red";
+        return;
+    }
+
     // Adiciona a tarefa na lista
     tarefas.push(tarefa);
 
@@ -52,6 +61,3 @@ document.getElementById("inputTarefa").addEventListener("keypress", function(eve
         adicionarTarefa();
     }
 });
-
-
-
