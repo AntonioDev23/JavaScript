@@ -69,27 +69,25 @@ function removerTarefa(indice) {
 function editarTarefa(indice, textoTarefa) {
     let inputEdicao = document.createElement("input");
     inputEdicao.value = tarefas[indice];
-    textoTarefa.textContent = ""; 
+    textoTarefa.textContent = "";
     textoTarefa.appendChild(inputEdicao);
+    inputEdicao.focus(); // Foca automaticamente no campo de edição
 
     let botaoSalvar = document.createElement("button");
     botaoSalvar.textContent = "Salvar";
-    botaoSalvar.classList.add("editar"); // Aplica a classe ao botão
-    console.log(botaoSalvar)
-    botaoSalvar.onclick = () => salvarEdicao(indice, inputEdicao.value, textoTarefa);
+    botaoSalvar.classList.add("botao-editar");
+
+    botaoSalvar.onclick = () => {
+        let novoTexto = inputEdicao.value.trim();
+        if (novoTexto !== "" && !tarefas.some(t => t.toLowerCase() === novoTexto.toLowerCase())) {
+            tarefas[indice] = novoTexto; // Atualiza o texto da tarefa
+            atualizarLista(); // Atualiza a lista na tela
+        } else {
+            alert("Tarefa inválida ou já existente!");
+        }
+    };
 
     textoTarefa.appendChild(botaoSalvar);
-}
-
-
-// Função para salvar a edição de uma tarefa
-function salvarEdicao(indice, novoTexto, textoTarefa) {
-    if (novoTexto.trim() !== "") { // Verifica se o texto não está vazio
-        tarefas[indice] = novoTexto.trim(); // Atualiza o texto da tarefa
-        atualizarLista(); // Atualiza a lista na tela
-    } else {
-        alert("A tarefa não pode ser vazia."); // Exibe alerta se a tarefa for vazia
-    }
 }
 
 // Função para limpar todas as tarefas

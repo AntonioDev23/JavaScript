@@ -67,23 +67,59 @@ ul li {
     font-size: 0.9em;
 }
 
-button.editar {
-    background-color: #FFD700;
-    color: black;
-}
-
-.botao.remover {
-    background-color: #FF6347;
+/* Botão Editar */
+.botao-editar {
+    background-color: #FFA500; /* Laranja */
     color: white;
+    margin-left: 10px;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
 }
 
-.botao.editar:hover {
-    background-color: #E6C200;
+.botao-editar:hover {
+    background-color: #CC8400; /* Laranja mais escuro no hover */
 }
 
-.botao.remover:hover {
-    background-color: #D64530;
+/* Botão Remover */
+.botao-remover {
+    background-color: #FF4500; /* Vermelho-alaranjado */
+    color: white;
+    margin-left: 10px;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
 }
+
+.botao-remover:hover {
+    background-color: #CC3700; /* Vermelho-alaranjado mais escuro no hover */
+}
+
+
+
+/* Botão Salvar */
+.botao-salvar {
+    background-color: #32CD32; /* Verde-limão */
+    color: white;
+    margin-left: 10px;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+.botao-salvar:hover {
+    background-color: #28A428; /* Verde-limão mais escuro no hover */
+}
+
 
 input[type="text"] {
     padding: 10px;
