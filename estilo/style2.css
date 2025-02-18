@@ -101,11 +101,9 @@ ul li {
     background-color: #CC3700; /* Vermelho-alaranjado mais escuro no hover */
 }
 
-
-
 /* Botão Salvar */
 .botao-salvar {
-    background-color: #32CD32; /* Verde-limão */
+    background-color: #0c770f; /* Verde */
     color: white;
     margin-left: 10px;
     padding: 5px 10px;
@@ -117,7 +115,7 @@ ul li {
 }
 
 .botao-salvar:hover {
-    background-color: #28A428; /* Verde-limão mais escuro no hover */
+    background-color: #45a049; /* Verde mais escuro no hover */
 }
 
 

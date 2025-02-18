@@ -45,11 +45,12 @@ function atualizarLista() {
 
         let botaoEditar = document.createElement("button"); // Cria o botão de editar
         botaoEditar.textContent = "Editar";
-        botaoEditar.classList.add("editar");
+        botaoEditar.classList.add("botao-editar"); // Adiciona a classe correta
         botaoEditar.onclick = () => editarTarefa(i, textoTarefa); // Define a ação ao clicar
 
         let botaoRemover = document.createElement("button"); // Cria o botão de remover
         botaoRemover.textContent = "Remover";
+        botaoRemover.classList.add("botao-remover"); // Adiciona a classe correta
         botaoRemover.onclick = () => removerTarefa(i); // Define a ação ao clicar
 
         // Adiciona os botões na tarefa
@@ -75,8 +76,7 @@ function editarTarefa(indice, textoTarefa) {
 
     let botaoSalvar = document.createElement("button");
     botaoSalvar.textContent = "Salvar";
-    botaoSalvar.classList.add("botao-editar");
-
+    botaoSalvar.classList.add("botao-salvar"); // Adiciona a classe correta
     botaoSalvar.onclick = () => {
         let novoTexto = inputEdicao.value.trim();
         if (novoTexto !== "" && !tarefas.some(t => t.toLowerCase() === novoTexto.toLowerCase())) {
