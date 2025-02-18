@@ -67,17 +67,20 @@ function removerTarefa(indice) {
 
 // Função para editar uma tarefa
 function editarTarefa(indice, textoTarefa) {
-    let inputEdicao = document.createElement("input"); // Cria um input para edição
-    inputEdicao.value = tarefas[indice]; // Preenche com o texto atual da tarefa
-    textoTarefa.textContent = ""; // Limpa o texto da tarefa
-    textoTarefa.appendChild(inputEdicao); // Adiciona o campo de edição
+    let inputEdicao = document.createElement("input");
+    inputEdicao.value = tarefas[indice];
+    textoTarefa.textContent = ""; 
+    textoTarefa.appendChild(inputEdicao);
 
-    let botaoSalvar = document.createElement("button"); // Cria o botão de salvar
+    let botaoSalvar = document.createElement("button");
     botaoSalvar.textContent = "Salvar";
-    botaoSalvar.onclick = () => salvarEdicao(indice, inputEdicao.value, textoTarefa); // Define a ação ao clicar
+    botaoSalvar.classList.add("editar"); // Aplica a classe ao botão
+    console.log(botaoSalvar)
+    botaoSalvar.onclick = () => salvarEdicao(indice, inputEdicao.value, textoTarefa);
 
-    textoTarefa.appendChild(botaoSalvar); // Adiciona o botão de salvar
+    textoTarefa.appendChild(botaoSalvar);
 }
+
 
 // Função para salvar a edição de uma tarefa
 function salvarEdicao(indice, novoTexto, textoTarefa) {

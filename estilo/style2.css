@@ -67,21 +67,21 @@ ul li {
     font-size: 0.9em;
 }
 
-.botao-editar {
+button.editar {
     background-color: #FFD700;
     color: black;
 }
 
-.botao-remover {
+.botao.remover {
     background-color: #FF6347;
     color: white;
 }
 
-.botao-editar:hover {
+.botao.editar:hover {
     background-color: #E6C200;
 }
 
-.botao-remover:hover {
+.botao.remover:hover {
     background-color: #D64530;
 }
 
