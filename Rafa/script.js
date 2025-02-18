@@ -1,39 +1,28 @@
 
-let tarefas = []; // Lista global para armazenar as tarefas
+let tarefas = [];
 
 function adicionarTarefa() {
     let inputTarefa = document.getElementById("inputTarefa");
     let tarefa = inputTarefa.value.trim();
-
     let mensagemElemento = document.getElementById("mensagem");
 
-    // Verificar se o campo está vazio
     if (tarefa === "") {
         mensagemElemento.textContent = "Por favor, digite uma tarefa!";
         mensagemElemento.style.color = "red";
         return;
     }
 
-    // Verificar se a tarefa já existe na lista (case insensitive)
-    let tarefaExiste = tarefas.some(t => t.toLowerCase() === tarefa.toLowerCase());
-
-    if (tarefaExiste) {
+    if (tarefas.some(t => t.toLowerCase() === tarefa.toLowerCase())) {
         mensagemElemento.textContent = "Tarefa já adicionada!";
         mensagemElemento.style.color = "red";
         return;
     }
 
-    // Adiciona a tarefa na lista
     tarefas.push(tarefa);
-
-    // Atualiza a mensagem de sucesso
     mensagemElemento.textContent = "Tarefa adicionada com sucesso!";
     mensagemElemento.style.color = "green";
 
-    // Atualiza a lista na tela
     atualizarLista();
-
-    // Limpa o campo de input
     inputTarefa.value = "";
 }
 
@@ -41,22 +30,61 @@ function atualizarLista() {
     let listaTarefas = document.getElementById("listaTarefas");
     listaTarefas.innerHTML = "";
 
-    for (let i = 0; i < tarefas.length; i++) {
+    tarefas.forEach((tarefa, index) => {
         let novaTarefa = document.createElement("li");
-        novaTarefa.textContent = tarefas[i];
+
+        // Criando um span para editar direto no local
+        let textoTarefa = document.createElement("span");
+        textoTarefa.textContent = tarefa;
+        textoTarefa.classList.add("tarefa-texto");
+
+        // Ativar edição ao clicar duas vezes
+        textoTarefa.ondblclick = function () {
+            let inputEdicao = document.createElement("input");
+            inputEdicao.type = "text";
+            inputEdicao.value = tarefa;
+            inputEdicao.classList.add("input-edicao");
+
+            inputEdicao.onblur = function () {
+                if (inputEdicao.value.trim() !== "") {
+                    tarefas[index] = inputEdicao.value.trim();
+                }
+                atualizarLista();
+            };
+
+            inputEdicao.onkeypress = function (event) {
+                if (event.key === "Enter") {
+                    inputEdicao.blur();
+                }
+            };
+
+            novaTarefa.replaceChild(inputEdicao, textoTarefa);
+            inputEdicao.focus();
+        };
+
+        // Botão de remover
+        let botaoRemover = document.createElement("button");
+        botaoRemover.textContent = "Remover";
+        botaoRemover.classList.add("botao-remover");
+        botaoRemover.onclick = function () {
+            tarefas.splice(index, 1);
+            atualizarLista();
+        };
+
+        novaTarefa.appendChild(textoTarefa);
+        novaTarefa.appendChild(botaoRemover);
         listaTarefas.appendChild(novaTarefa);
-    }
+    });
 }
 
 function limparLista() {
-    tarefas = []; // Zera a lista de tarefas
-    atualizarLista(); // Atualiza a tela para remover os itens
+    tarefas = [];
+    atualizarLista();
     document.getElementById("mensagem").textContent = "Lista limpa!";
     document.getElementById("mensagem").style.color = "blue";
 }
 
-// Adicionar evento para a tecla "Enter"
-document.getElementById("inputTarefa").addEventListener("keypress", function(event) {
+document.getElementById("inputTarefa").addEventListener("keypress", function (event) {
     if (event.key === "Enter") {
         adicionarTarefa();
     }

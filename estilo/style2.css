@@ -45,6 +45,9 @@ ul {
     margin-top: 20px;
 }
 ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: #F4F0EA;
     color: #331F19;
     padding: 10px;
@@ -52,22 +55,30 @@ ul li {
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
-/* Estilo para o campo de entrada */
-input[type="text"] {
-    padding: 10px;
-    width: 80%;
-    max-width: 500px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border: 2px solid #8B7D70;
-    border-radius: 5px;
-    font-size: 1em;
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
-    outline: none;
-    transition: border-color 0.3s ease;
+.tarefa-texto {
+    flex-grow: 1;
+    cursor: pointer;
 }
-input[type="text"]:focus {
+.input-edicao {
+    width: 100%;
+    padding: 5px;
+    font-size: 1em;
+    border: 2px solid #8B7D70;
+    border-radius: 4px;
+    outline: none;
+}
+.input-edicao:focus {
     border-color: #60041A;
-    box-shadow: inset 0 2px 4px rgba(96, 4, 26, 0.3);
+}
+.botao-remover, .botao-editar {
+    background-color: #A34743;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin-left: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.botao-remover:hover, .botao-editar:hover {
+    background-color: #60041A;
 }
