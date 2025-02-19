@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Relógio</title>
     <style>
-        /* Reset básico */
-* {
+ * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -18,22 +17,34 @@ body {
     align-items: center;
     height: 100vh;
     font-family: Arial, sans-serif;
-    transition: background-color 0.5s ease; /* Transição suave para a cor de fundo */
+    transition: background-color 1s ease;
 }
 
 .container {
     text-align: center;
     padding: 20px;
     border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.8); /* Fundo semi-transparente */
+    background-color: rgba(255, 255, 255, 0.8);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1;
+}
+
+video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
 }
 
 img {
     max-width: 100%;
     height: auto;
     border-radius: 10px;
-    transition: opacity 0.5s ease;
+    transition: opacity 1s ease;
 }
 
 #mensagem {
@@ -41,14 +52,61 @@ img {
     font-size: 1.5em;
     color: #333;
     font-weight: bold;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+select, button {
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+button {
+    background-color: #60041A;
+    color: #F4F0EA;
+}
+
+button:hover {
+    background-color: #A34743;
+}
+
+.modo-escuro {
+    background-color: #333;
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    #mensagem {
+        font-size: 1.2em;
+    }
 }
     </style>
 </head>
 <body>
     <div class="container">
-        <img id="imagem" src="" alt="imagem">
+        <video id="videoFundo" autoplay muted loop>
+            <source src="" type="video/mp4"> <!-- Vídeo será definido pelo JavaScript -->
+        </video>
+        <img id="imagem" src="" alt="Imagem do período do dia">
         <p id="mensagem"></p>
+        <select id="selecionarTema">
+            <option value="auto">Automático</option>
+            <option value="manha">Manhã</option>
+            <option value="tarde">Tarde</option>
+            <option value="noite">Noite</option>
+        </select>
+        <button id="alternarModo">Alternar Modo</button>
     </div>
+
+    <audio id="somAmbiente" src="" loop></audio> <!-- Som será definido pelo JavaScript -->
 
     <script src="script.js"></script>
 </body>
