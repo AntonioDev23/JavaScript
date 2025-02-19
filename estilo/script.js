@@ -9,15 +9,15 @@ function definirTema() {
     if (hora >= 6 && hora < 12) {
         // Manhã (6h - 11h59)
         body.style.backgroundColor = "#87CEEB"; // Azul claro
-        imagem.src = "manha.jpg"; // Imagem da manhã
+        imagem.src = "/Guanabara/imagens/istockphoto-491701259-612x612.jpg"; // Imagem da manhã
     } else if (hora >= 12 && hora < 18) {
         // Tarde (12h - 17h59)
         body.style.backgroundColor = "#FFA500"; // Laranja
-        imagem.src = "tarde.jpg"; // Imagem da tarde
+        imagem.src = "/Guanabara/imagens/depositphotos_1654642-stock-photo-desert-sunset.jpg"; // Imagem da tarde
     } else {
         // Noite (18h - 5h59)
         body.style.backgroundColor = "#2C3E50"; // Azul escuro
-        imagem.src = "noite.jpg"; // Imagem da noite
+        imagem.src = "/Guanabara/imagens/4125202-panorama-da-noite-ceu-com-nuvens-e-lua-cheia-foto.jpg"; // Imagem da noite
     }
 }
 
