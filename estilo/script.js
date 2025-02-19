@@ -83,7 +83,7 @@ function definirTemaManual(tema) {
         somAmbiente.src = "sons/tarde.mp3";
     } else if (tema === "noite") {
         body.style.backgroundColor = "#2C3E50";
-        imagem.src = "noite.jpg";
+        imagem.src = "/Guanabara/imagens/4125202-panorama-da-noite-ceu-com-nuvens-e-lua-cheia-foto.jpg";
         videoFundo.src = "videos/noite.mp4";
         somAmbiente.src = "sons/noite.mp3";
     }
