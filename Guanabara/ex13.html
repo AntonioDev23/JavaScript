@@ -17,6 +17,7 @@ body {
     align-items: center;
     height: 100vh;
     font-family: Arial, sans-serif;
+    color: #fff; /* Texto claro por padrão */
 }
 
 iframe#videoFundo {
@@ -33,23 +34,15 @@ iframe#videoFundo {
     text-align: center;
     padding: 20px;
     border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(0, 0, 0, 0.6); /* Fundo semi-transparente */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     position: relative;
     z-index: 1;
 }
 
-img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    transition: opacity 1s ease;
-}
-
 #mensagem {
     margin-top: 20px;
     font-size: 1.5em;
-    color: #333;
     font-weight: bold;
 }
 
@@ -60,20 +53,27 @@ select, button {
     border-radius: 5px;
     cursor: pointer;
     font-size: 1em;
-}
-
-button {
-    background-color: #60041A;
-    color: #F4F0EA;
+    background-color: rgba(255, 255, 255, 0.8); /* Fundo claro para os botões */
+    color: #333; /* Texto escuro para os botões */
 }
 
 button:hover {
-    background-color: #A34743;
+    background-color: rgba(255, 255, 255, 1); /* Fundo mais claro no hover */
 }
 
-.modo-escuro {
-    background-color: #333;
-    color: #fff;
+.modo-escuro .container {
+    background-color: rgba(255, 255, 255, 0.8); /* Fundo claro no modo escuro */
+    color: #333; /* Texto escuro no modo escuro */
+}
+
+.modo-escuro select,
+.modo-escuro button {
+    background-color: rgba(0, 0, 0, 0.8); /* Fundo escuro para os botões no modo escuro */
+    color: #fff; /* Texto claro para os botões no modo escuro */
+}
+
+.modo-escuro button:hover {
+    background-color: rgba(0, 0, 0, 1); /* Fundo mais escuro no hover */
 }
 
 @media (max-width: 768px) {
