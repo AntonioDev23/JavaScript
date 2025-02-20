@@ -11,9 +11,11 @@ function verificar () {
         var genero = ""
         if (fsex [1] .checked) {
             genero = "Homem"
-            if (idade >= 0 && idade < 10) {
-                
-        
+            
+        } else if (fsex [1] .checked) {
+            genero = "Mulher"
+            
+        }
             res.style.textalign = "center"
             res.innerHTML = `Detectamos ${genero} com ${idade} anos.`
    }
