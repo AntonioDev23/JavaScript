@@ -1,3 +1,4 @@
+
 const videoFundo = document.getElementById("videoFundo");
 const imagem = document.getElementById("imagem");
 const mensagem = document.getElementById("mensagem");
