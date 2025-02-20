@@ -30,14 +30,14 @@ body {
     z-index: 1;
 }
 
-video {
+iframe#videoFundo {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    z-index: -1;
+    z-index: -1; /* Coloca o vídeo atrás do conteúdo */
+    object-fit: cover; /* Garante que o vídeo cubra toda a tela */
 }
 
 img {
@@ -91,11 +91,18 @@ button:hover {
     </style>
 </head>
 <body>
+    <iframe
+        id="videoFundo"
+        width="100%"
+        height="100%"
+        src="https://www.youtube.com/embed/s95M-a1iVls?autoplay=1&mute=1&loop=1&playlist=s95M-a1iVls"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+    </iframe>
+
     <div class="container">
-        <video id="videoFundo" autoplay muted loop>
-            <source src="" type="video/mp4"> <!-- Vídeo será definido pelo JavaScript -->
-        </video>
-        <img id="imagem" src="" alt="">
+        <img id="imagem" src="" alt="Imagem do período do dia">
         <p id="mensagem"></p>
         <select id="selecionarTema">
             <option value="auto">Automático</option>
@@ -106,7 +113,6 @@ button:hover {
         <button id="alternarModo">Alternar Modo</button>
     </div>
 
-    <audio id="somAmbiente" src="" loop></audio> <!-- Som será definido pelo JavaScript -->
 
     <script src="script.js"></script>
 </body>
