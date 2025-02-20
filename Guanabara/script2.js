@@ -11,6 +11,17 @@ function verificar () {
         var genero = ""
         if (fsex [1] .checked) {
             genero = "Homem"
+            if (idade >=0 && idade < 10) {
+                //criança
+            } else if ( idade < 21) {
+                //adolescente
+            } 
+            else if (idade < 60) {
+                //adulto
+            } else {
+                //idoso
+            }
+                
             
         } else if (fsex [1] .checked) {
             genero = "Mulher"
