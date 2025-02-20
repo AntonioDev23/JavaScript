@@ -16,7 +16,7 @@ function definirTema() {
     if (hora >= 6 && hora < 12) {
         // Manhã
         videoFundo.src = "https://www.youtube.com/embed/s95M-a1iVls?autoplay=1&mute=1&loop=1&playlist=s95M-a1iVls";
-        imagem.src = "manha.jpg";
+        imagem.src = "/Guanabara/imagens/istockphoto-491701259-612x612.jpg";
         mensagem.textContent = `Bom dia! Agora são ${horaFormatada}:${minutosFormatados}.`;
     } else if (hora >= 12 && hora < 18) {
         // Tarde
