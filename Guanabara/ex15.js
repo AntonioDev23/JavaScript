@@ -1,11 +1,8 @@
 let c = 1
-while (c <= 50) {
+do {
     console.log(`Passo ${c}`)
-    c++  // Incrementa o valor de c
-}
+} while (c <= 50) 
 
 
 
 
-/*
-console.log("Tudo bem ?") */
