@@ -4,29 +4,6 @@ const mensagem = document.getElementById("mensagem");
 const selecionarTema = document.getElementById("selecionarTema");
 const botaoModo = document.getElementById("alternarModo");
 const ativarSom = document.getElementById("ativarSom");
-let player;
-
-// Função para carregar o player do YouTube
-function onYouTubeIframeAPIReady() {
-    player = new YT.Player('videoFundo', {
-        events: {
-            'onReady': onPlayerReady
-        }
-    });
-}
-
-function onPlayerReady(event) {
-    ativarSom.addEventListener("click", () => {
-        player.unMute(); // Ativa o som
-        player.playVideo(); // Garante que o vídeo continue tocando
-    });
-}
-
-// Carrega a API do YouTube
-const tag = document.createElement('script');
-tag.src = "https://www.youtube.com/iframe_api";
-const firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 // Função para definir o tema com base no horário
 function definirTema() {
@@ -50,6 +27,12 @@ function definirTema() {
         mensagem.textContent = `Boa noite! Agora são ${horaFormatada}:${minutosFormatados}.`;
     }
 }
+
+// Função para ativar o som do vídeo
+ativarSom.addEventListener("click", () => {
+    const srcAtual = videoFundo.src.replace("mute=1", "mute=0");
+    videoFundo.src = srcAtual; // Atualiza o iframe para ativar o som
+});
 
 // Função para alternar entre modo claro e escuro
 botaoModo.addEventListener("click", () => {
