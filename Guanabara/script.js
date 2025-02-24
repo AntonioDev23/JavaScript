@@ -1,9 +1,10 @@
 
-const videoFundo = document.getElementById("videoFundo");
-const mensagem = document.getElementById("mensagem");
-const selecionarTema = document.getElementById("selecionarTema");
-const botaoModo = document.getElementById("alternarModo");
-const ativarSom = document.getElementById("ativarSom");
+const videoFundo = document.querySelector("#videoFundo");
+const mensagem = document.querySelector("#mensagem");
+const selecionarTema = document.querySelector("#selecionarTema");
+const botaoModo = document.querySelector("#alternarModo");
+const ativarSom = document.querySelector("#ativarSom");
+
 
 // Função para definir o tema com base no horário
 function definirTema() {
