@@ -1,9 +1,9 @@
-// Pede um número ao usuário e converte para inteiro
-let numero = parseInt(prompt("Digite um número:"));
+const readline = require('readline-sync'); // Importa readline-sync
 
-// Verifica se o número é divisível por 2 (par)
+let numero = parseInt(readline.question("Digite um número: "));
+
 if (numero % 2 === 0) {
     console.log(`${numero} é par.`);
-} else { // Caso contrário, é ímpar
+} else {
     console.log(`${numero} é ímpar.`);
 }
