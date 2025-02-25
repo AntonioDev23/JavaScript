@@ -1,7 +1,7 @@
-// Pede ao usuário um número para gerar a tabuada
-let numero = parseInt(prompt("Digite um número para ver a tabuada:"));
+const readline = require('readline-sync');
 
-// Loop `for` que percorre de 1 até 10
+let numero = parseInt(readline.question("Digite um número para ver a tabuada: "));
+
 for (let i = 1; i <= 10; i++) {
-    console.log(`${numero} x ${i} = ${numero * i}`); // Exibe a multiplicação
+    console.log(`${numero} x ${i} = ${numero * i}`);
 }
