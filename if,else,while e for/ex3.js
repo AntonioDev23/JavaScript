@@ -1,8 +1,9 @@
-let senha; // Variável para armazenar a senha digitada
+const readline = require('readline-sync');
 
-// O loop `do while` garante que o código execute pelo menos uma vez
+let senha;
+
 do {
-    senha = prompt("Digite a senha:"); // Pede a senha ao usuário
-} while (senha !== "1234"); // Repete enquanto a senha for incorreta
+    senha = readline.question("Digite a senha: ");
+} while (senha !== "1234");
 
-console.log("Acesso permitido."); // Exibe mensagem ao acertar a senha
+console.log("Acesso permitido.");
