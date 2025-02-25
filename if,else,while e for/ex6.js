@@ -24,5 +24,3 @@ if (ehPrimo) {
     console.log(`${numero} não é primo.`);
 }
 
-
-
