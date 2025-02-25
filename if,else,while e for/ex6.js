@@ -1,32 +1,28 @@
-// Importa o módulo readline-sync para receber entrada do usuário no Node.js
-const readline = require('readline-sync');
+// Pede um número ao usuário e converte para inteiro
+let numero = parseInt(prompt("Digite um número:"));
 
-// Solicita ao usuário que insira um número e converte a entrada para um número inteiro
-let numero = parseInt(readline.question("Digite um número: "));
-
-// Inicializa a variável 'ehPrimo' assumindo que o número é primo
+// Inicializa a variável para verificar se o número é primo
 let ehPrimo = true;
 
-// Números menores que 2 não são considerados primos
+// Números menores que 2 não são primos
 if (numero < 2) {
     ehPrimo = false;
 } else {
-    // Loop que verifica divisores do número, começando de 2 até um valor menor que o número
+    // Loop de 2 até o número - 1 para verificar se ele é divisível por algum outro número
     for (let i = 2; i < numero; i++) {
-        // Se o número for divisível por 'i', não é primo
-        if (numero % i === 0) {
+        if (numero % i === 0) { // Se for divisível, não é primo
             ehPrimo = false;
-            // Interrompe o loop ao encontrar um divisor
-            break;
+            break; // Sai do loop, pois já sabemos que não é primo
         }
     }
 }
 
-// Exibe se o número é primo ou não, com base na variável 'ehPrimo'
+// Exibe o resultado final
 if (ehPrimo) {
     console.log(`${numero} é primo.`);
 } else {
     console.log(`${numero} não é primo.`);
 }
+
 
 

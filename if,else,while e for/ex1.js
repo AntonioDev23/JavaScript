@@ -1,14 +1,10 @@
-// Importa o módulo readline-sync para receber entrada do usuário no Node.js
-const readline = require('readline-sync');
+// Pede um número ao usuário e converte para inteiro
+let numero = parseInt(prompt("Digite um número:"));
 
-// Solicita ao usuário que insira um número e converte a entrada para um número inteiro
-let numero = parseInt(readline.question("Digite um número: "));
-
-// Verifica se o número é divisível por 2
+// Verifica se o número é divisível por 2 (par)
 if (numero % 2 === 0) {
-    // Se o resto da divisão por 2 for zero, o número é par
     console.log(`${numero} é par.`);
-} else {
-    // Caso contrário, o número é ímpar
+} else { // Caso contrário, é ímpar
     console.log(`${numero} é ímpar.`);
 }
+

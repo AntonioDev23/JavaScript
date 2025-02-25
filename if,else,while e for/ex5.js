@@ -1,8 +1,7 @@
-// Loop 'for' que inicia em 10 e decrementa até 1
+// Loop que começa em 10 e decrementa até 1
 for (let i = 10; i >= 1; i--) {
-    // Exibe o valor atual de 'i'
-    console.log(i);
+    console.log(i); // Exibe o número atual
 }
 
-// Após o loop, exibe a mensagem de celebração
+// Exibe a mensagem final após a contagem regressiva
 console.log("Feliz Ano Novo! 🎉");

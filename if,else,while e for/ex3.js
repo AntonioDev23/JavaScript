@@ -1,15 +1,8 @@
-// Importa o módulo readline-sync para receber entrada do usuário no Node.js
-const readline = require('readline-sync');
+let senha; // Variável para armazenar a senha digitada
 
-// Declara a variável 'senha' sem inicializá-la
-let senha;
-
-// Executa o bloco de código pelo menos uma vez
+// O loop `do while` garante que o código execute pelo menos uma vez
 do {
-    // Solicita ao usuário que insira a senha
-    senha = readline.question("Digite a senha: ");
-    // Continua solicitando a senha enquanto a entrada for diferente de "1234"
-} while (senha !== "1234");
+    senha = prompt("Digite a senha:"); // Pede a senha ao usuário
+} while (senha !== "1234"); // Repete enquanto a senha for incorreta
 
-// Quando a senha correta é inserida, exibe a mensagem de acesso permitido
-console.log("Acesso permitido.");
+console.log("Acesso permitido."); // Exibe mensagem ao acertar a senha
