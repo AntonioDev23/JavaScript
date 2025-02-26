@@ -7,12 +7,4 @@ for (let pos in num) {
     console.log(`O valor na posição ${pos} é ${num[pos]}`)
 }
 
-const pessoa = {
-  nome: 'Ana',
-  idade: 28,
-  profissao: 'Engenheira'
-};
 
-for (const propriedade in pessoa) {
-  console.log(`${propriedade}: ${pessoa[propriedade]}`);
-}
