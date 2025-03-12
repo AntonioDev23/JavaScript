@@ -12,49 +12,46 @@
         .container {
             display: grid;
             grid-template-areas: 
-            'header header header'
+            'header header header '
             'aside article section'
             'footer footer footer';
         }
 
         header {
-            grid-template-areas: header;
+            grid-area: header;
             background-color: brown;
         }
 
         aside {
-            grid-template-areas: aside;
+            grid-area: aside;
             background-color: burlywood;
         }
 
         article {
-            grid-template-areas: article;
+            grid-area: article;
             background-color: chocolate;
         }
 
         section {
-            grid-template-areas: section;
+            grid-area: section;
             background-color: cyan;
         }
 
         footer {
-            grid-template-areas: footer;
+            grid-area: footer;
             background-color: fuchsia;
         }
 
-        .item {
-            background-color: aquamarine;
-            margin: 20px;
-        }
+        
     </style>
 </head>
 <body>
     <div class="container">
-        <header></header>
-        <aside></aside>
-        <article></article>
-        <section></section>
-        <footer></footer>
+        <header>header</header>
+        <aside>aside</aside>
+        <article>article</article>
+        <section>section</section>
+        <footer>footer</footer>
     </div>
 </body>
 </html>
