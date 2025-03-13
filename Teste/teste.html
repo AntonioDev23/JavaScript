@@ -7,29 +7,16 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
+    header>
         <h1>Minha Loja</h1>
+        <input type="text" id="search" placeholder="Pesquisar produtos..." onkeyup="filtrarProdutos()">
+        <a href="carrinho.html">🛒 Carrinho (<span id="cart-count">0</span>)</a>
     </header>
     <main>
-        <section class="produtos">
-            <div class="produto">
-                <img src="produto1.jpg" alt="Produto 1">
-                <h2>Produto 1</h2>
-                <p>R$ 99,90</p>
-                <button onclick="adicionarAoCarrinho('Produto 1', 99.90)">Adicionar ao Carrinho</button>
-            </div>
-            <div class="produto">
-                <img src="produto2.jpg" alt="Produto 2">
-                <h2>Produto 2</h2>
-                <p>R$ 149,90</p>
-                <button onclick="adicionarAoCarrinho('Produto 2', 149.90)">Adicionar ao Carrinho</button>
-            </div>
+        <section class="produtos" id="lista-produtos">
+            <!-- Produtos serão inseridos aqui via JavaScript -->
         </section>
     </main>
-    <aside>
-        <h2>Carrinho</h2>
-        <ul id="carrinho"></ul>
-    </aside>
     <script src="script.js"></script>
 </body>
 </html>
