@@ -4,3 +4,13 @@
     margin: 0px;
     padding: 0px;
 }
+
+body {
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: coral;
+}
