@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-pt">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="calculator">
-        <input type="text" name="display" id="display" disabled>
+        <input type="text" id="display" disabled>
         <div class="buttons">
             <button onclick="appendNumber('1')">1</button>
             <button onclick="appendNumber('2')">2</button>
@@ -26,7 +26,7 @@
             <button onclick="appendOperator('-')">-</button>
             <button onclick="appendOperator('*')">*</button>
             <button onclick="appendOperator('/')">/</button>
-            
+            <button onclick="deleteLast()">⌫</button>
         </div>
     </div>
     <script src="script.js"></script>
