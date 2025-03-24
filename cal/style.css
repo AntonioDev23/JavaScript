@@ -16,11 +16,13 @@ body {
 }
 
 .calculator {
-    width: min(90%, 300px);
+    width: min(90%, 320px);
     background-color: white;
     padding: 1.5rem;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: grid;
+    gap: 1rem;
 }
 
 input[type="text"] {
@@ -29,7 +31,6 @@ input[type="text"] {
     font-size: 2rem;
     font-family: monospace;
     text-align: right;
-    margin-bottom: 1rem;
     padding: 0.5rem;
     border-radius: 5px;
     border: 1px solid #6200ee;
@@ -41,22 +42,44 @@ input[type="text"] {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(5, 1fr);
     gap: 0.8rem;
-    grid-template-areas:
-        "percent seven eight nine"
-        "divide four five six"
-        "multiply one two three"
-        "subtract zero clear equals"
-        "add decimal backspace .";
 }
 
+/* Botões de função (linha superior) */
+.func-btn {
+    background-color: #b00020 !important;
+    color: white !important;
+    grid-row: 1;
+}
+
+/* Botões numéricos */
+.num-btn {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.num-btn.zero {
+    grid-column: span 2;
+}
+
+/* Operadores (coluna direita) */
+.op-btn {
+    background-color: #6200ee;
+    color: white;
+    grid-column: 4;
+}
+
+.op-btn.equals {
+    background-color: #018786;
+    grid-row: 5;
+}
+
+/* Estilos base */
 button {
     width: 100%;
     height: 60px;
     font-size: 1.5rem;
     border-radius: 5px;
     border: none;
-    background-color: #6200ee;
-    color: white;
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -65,23 +88,18 @@ button {
 }
 
 button:hover {
-    background-color: #3700b3;
+    opacity: 0.9;
 }
 
 button:active {
     transform: scale(0.95);
 }
 
-/* Cores específicas para botões */
-button[style*="percent"] { background-color: #03dac6; color: #000; }
-button[style*="equals"] { background-color: #018786; grid-column: span 1; }
-button[style*="clear"]  { background-color: #b00020; }
-button[style*="backspace"] { background-color: #ff7043; color: #000; }
-
 /* Ajuste para mobile */
 @media (max-width: 480px) {
-    .buttons {
-        gap: 0.5rem;
+    .calculator {
+        width: 95%;
+        padding: 1rem;
     }
     button {
         height: 50px;
