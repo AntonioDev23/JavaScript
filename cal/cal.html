@@ -3,32 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora Grid Perfeita</title>
+    <title>Calculadora Profissional</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="calculator">
         <input type="text" id="display" disabled aria-label="Display da calculadora">
         <div class="buttons">
-            <button style="grid-area: percent">%</button>
-            <button style="grid-area: seven">7</button>
-            <button style="grid-area: eight">8</button>
-            <button style="grid-area: nine">9</button>
-            <button style="grid-area: divide">/</button>
-            <button style="grid-area: four">4</button>
-            <button style="grid-area: five">5</button>
-            <button style="grid-area: six">6</button>
-            <button style="grid-area: multiply">*</button>
-            <button style="grid-area: one">1</button>
-            <button style="grid-area: two">2</button>
-            <button style="grid-area: three">3</button>
-            <button style="grid-area: subtract">-</button>
-            <button style="grid-area: zero">0</button>
-            <button style="grid-area: clear">C</button>
-            <button style="grid-area: equals">=</button>
-            <button style="grid-area: add">+</button>
-            <button style="grid-area: decimal">.</button>
-            <button style="grid-area: backspace">⌫</button>
+            <!-- Linha superior (funções) -->
+            <button class="func-btn">C</button>
+            <button class="func-btn">%</button>
+            <button class="func-btn">⌫</button>
+            
+            <!-- Números -->
+            <button class="num-btn">7</button>
+            <button class="num-btn">8</button>
+            <button class="num-btn">9</button>
+            
+            <button class="num-btn">4</button>
+            <button class="num-btn">5</button>
+            <button class="num-btn">6</button>
+            
+            <button class="num-btn">1</button>
+            <button class="num-btn">2</button>
+            <button class="num-btn">3</button>
+            
+            <button class="num-btn zero">0</button>
+            <button class="num-btn">.</button>
+            
+            <!-- Operadores (coluna direita) -->
+            <button class="op-btn">/</button>
+            <button class="op-btn">*</button>
+            <button class="op-btn">-</button>
+            <button class="op-btn">+</button>
+            <button class="op-btn equals">=</button>
         </div>
     </div>
     <script src="script.js"></script>
