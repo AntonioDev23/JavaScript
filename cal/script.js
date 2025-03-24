@@ -1,8 +1,6 @@
 const display = document.getElementById('display');
-const buttons = document.querySelectorAll('.buttons button');
 let currentExpression = '';
 
-// Função principal para adicionar valores ao display
 function appendToDisplay(value) {
     const lastChar = currentExpression.slice(-1);
     const operators = ['+', '-', '*', '/', '%'];
@@ -10,22 +8,26 @@ function appendToDisplay(value) {
     // Validações
     if (value === '.' && currentExpression.includes('.')) return;
     if (operators.includes(value) && operators.includes(lastChar)) return;
-    if (value === '%' && !/\d$/.test(currentExpression)) return;
     
     currentExpression += value;
     display.value = currentExpression;
 }
 
-// Função segura para cálculo
+function clearDisplay() {
+    currentExpression = '';
+    display.value = '';
+}
+
+function backspace() {
+    currentExpression = currentExpression.slice(0, -1);
+    display.value = currentExpression;
+}
+
 function calculate() {
     try {
-        // Substitui % por /100 antes do cálculo
+        // Substitui % por /100
         let expression = currentExpression.replace(/%/g, '/100');
-        
-        // Calcula com precisão decimal
         const result = Function(`'use strict'; return (${expression})`)();
-        
-        // Formata o resultado
         display.value = Number.isInteger(result) ? result : parseFloat(result.toFixed(10));
         currentExpression = display.value.toString();
     } catch {
@@ -34,42 +36,30 @@ function calculate() {
     }
 }
 
-// Limpar display
-function clearDisplay() {
-    currentExpression = '';
-    display.value = '';
-}
-
-// Apagar último caractere
-function backspace() {
-    currentExpression = currentExpression.slice(0, -1);
-    display.value = currentExpression;
-}
-
-// Mapeamento de botões
-buttons.forEach(button => {
+// Event listeners dinâmicos
+document.querySelectorAll('button').forEach(button => {
     button.addEventListener('click', () => {
         const value = button.textContent;
         
-        switch(value) {
-            case '=':
-                calculate();
-                break;
-            case 'C':
-                clearDisplay();
-                break;
-            case '⌫':
-                backspace();
-                break;
-            default:
-                appendToDisplay(value);
+        if (button.classList.contains('num-btn') || button.classList.contains('op-btn')) {
+            appendToDisplay(value);
+        } else if (value === 'C') {
+            clearDisplay();
+        } else if (value === '⌫') {
+            backspace();
+        } else if (value === '=') {
+            calculate();
+        } else if (value === '%') {
+            appendToDisplay(value);
         }
     });
 });
 
 // Suporte a teclado
 document.addEventListener('keydown', (e) => {
-    if (/[0-9.%+\-*/]/.test(e.key)) {
+    if (/[0-9.]/.test(e.key)) {
+        appendToDisplay(e.key);
+    } else if (/[+\-*/]/.test(e.key)) {
         appendToDisplay(e.key);
     } else if (e.key === 'Enter' || e.key === '=') {
         calculate();
