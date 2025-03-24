@@ -1,64 +1,91 @@
-@charset "UTF-8"; 
+@charset "UTF-8";
 
 * {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: 'Segoe UI', Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: coral;
+    min-height: 100vh;
+    background-color: #f0f0f0;
 }
 
 .calculator {
-    width: 16%;
+    width: min(90%, 300px);
     background-color: white;
-    padding: 18px;
+    padding: 1.5rem;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 input[type="text"] {
-    width: 92%;
-    height: 50px;
-    font-size: 2em;
+    width: 100%;
+    height: 70px;
+    font-size: 2rem;
+    font-family: monospace;
     text-align: right;
-    margin-bottom: 20px;
-    padding: 10px;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
     border-radius: 5px;
-    border: 1px solid #a535da;
-}
-
-button {
-    display: flex;
-    width: 60px;
-    height: 50px;
-    font-size: 1.5em;
-    margin: 5px;
-    border-radius: 5px;
-    border: none;
-    background-color: rgb(185, 151, 248);
-    cursor: pointer;
-    justify-content: center;
-    align-items: center;
-}
-
-button:hover {
-    background-color: blueviolet;
+    border: 1px solid #6200ee;
+    background-color: #f9f9f9;
 }
 
 .buttons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    gap: 0.8rem;
+}
+
+button {
+    width: 100%;
+    height: 60px;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    border: none;
+    background-color: #6200ee;
+    color: white;
+    cursor: pointer;
+    display: flex;
     justify-content: center;
+    align-items: center;
+    transition: all 0.2s;
+}
+
+button:hover {
+    background-color: #3700b3;
+}
+
+button:active {
+    transform: scale(0.95);
 }
 
 button:nth-child(1) {
-    grid-column: 1 / span 2; /* Botão "%" ocupa 2 colunas */
+    grid-column: span 2;
+    background-color: #03dac6;
+    color: #000;
+}
+
+button:nth-child(16) {
+    grid-column: span 2;
+    background-color: #018786;
+}
+
+button:nth-child(19) {
+    background-color: #b00020;
+}
+
+@media (max-width: 480px) {
+    .buttons {
+        gap: 0.5rem;
+    }
+    button {
+        height: 50px;
+        font-size: 1.2rem;
+    }
 }
