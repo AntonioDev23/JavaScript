@@ -61,14 +61,17 @@ button.operator {
 
 button.equal {
     background-color: green;
-    width: 50px;
     height: 110px;
 }
 
-button.zero {
-    width: 100%;
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Mantém 4 colunas */
+    gap: 5px; /* Reduz o espaço entre os botões */
 }
 
-button:hover {
-    filter: brightness(1.2);
+.zero {
+    grid-column: span 2; /* Ocupa duas colunas */
+    width: 100%; /* Garante que ocupa o espaço corretamente */
+    height: 50px; /* Mantém o mesmo tamanho dos outros botões */
 }
