@@ -3,40 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora Profissional</title>
+    <title>Calculadora Compacta</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="calculator">
-        <input type="text" id="display" disabled aria-label="Display da calculadora">
+        <input type="text" id="display" disabled>
         <div class="buttons">
-            <!-- Linha superior (funções) -->
-            <button class="func-btn">C</button>
-            <button class="func-btn">%</button>
-            <button class="func-btn">⌫</button>
+            <button class="func">C</button>
+            <button class="func">%</button>
+            <button class="func">⌫</button>
+            <button class="op">/</button>
             
-            <!-- Números -->
-            <button class="num-btn">7</button>
-            <button class="num-btn">8</button>
-            <button class="num-btn">9</button>
+            <button class="num">7</button>
+            <button class="num">8</button>
+            <button class="num">9</button>
+            <button class="op">×</button>
             
-            <button class="num-btn">4</button>
-            <button class="num-btn">5</button>
-            <button class="num-btn">6</button>
+            <button class="num">4</button>
+            <button class="num">5</button>
+            <button class="num">6</button>
+            <button class="op">-</button>
             
-            <button class="num-btn">1</button>
-            <button class="num-btn">2</button>
-            <button class="num-btn">3</button>
+            <button class="num">1</button>
+            <button class="num">2</button>
+            <button class="num">3</button>
+            <button class="op">+</button>
             
-            <button class="num-btn zero">0</button>
-            <button class="num-btn">.</button>
-            
-            <!-- Operadores (coluna direita) -->
-            <button class="op-btn">/</button>
-            <button class="op-btn">*</button>
-            <button class="op-btn">-</button>
-            <button class="op-btn">+</button>
-            <button class="op-btn equals">=</button>
+            <button class="num zero">0</button>
+            <button class="num">.</button>
+            <button class="op equals">=</button>
         </div>
     </div>
     <script src="script.js"></script>
