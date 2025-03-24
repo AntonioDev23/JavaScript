@@ -39,7 +39,14 @@ input[type="text"] {
 .buttons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
     gap: 0.8rem;
+    grid-template-areas:
+        "percent seven eight nine"
+        "divide four five six"
+        "multiply one two three"
+        "subtract zero clear equals"
+        "add decimal backspace .";
 }
 
 button {
@@ -65,21 +72,13 @@ button:active {
     transform: scale(0.95);
 }
 
-button:nth-child(1) {
-    grid-column: span 2;
-    background-color: #03dac6;
-    color: #000;
-}
+/* Cores específicas para botões */
+button[style*="percent"] { background-color: #03dac6; color: #000; }
+button[style*="equals"] { background-color: #018786; grid-column: span 1; }
+button[style*="clear"]  { background-color: #b00020; }
+button[style*="backspace"] { background-color: #ff7043; color: #000; }
 
-button:nth-child(16) {
-    grid-column: span 2;
-    background-color: #018786;
-}
-
-button:nth-child(19) {
-    background-color: #b00020;
-}
-
+/* Ajuste para mobile */
 @media (max-width: 480px) {
     .buttons {
         gap: 0.5rem;
