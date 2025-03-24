@@ -1,9 +1,8 @@
 @charset "UTF-8"; 
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
 }
 
 body {
@@ -12,6 +11,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    margin: 0;
     background-color: coral;
 }
 
@@ -24,31 +24,26 @@ body {
 }
 
 input[type="text"] {
-    width: 100%;
+    width: 92%;
     height: 50px;
     font-size: 2em;
     text-align: right;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #a535da;
 }
 
-.buttons {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 5px;
-}
-
 button {
-    width: 100%;
+    display: flex;
+    width: 60px;
     height: 50px;
     font-size: 1.5em;
+    margin: 5px;
     border-radius: 5px;
     border: none;
     background-color: rgb(185, 151, 248);
     cursor: pointer;
-    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -57,6 +52,13 @@ button:hover {
     background-color: blueviolet;
 }
 
-.zero {
-    grid-column: span 2; /* Ocupa duas colunas */
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    justify-content: center;
+}
+
+button:nth-child(1) {
+    grid-column: 1 / span 2; /* Botão "%" ocupa 2 colunas */
 }
