@@ -11,9 +11,11 @@ body {
     background-color: #f4f4f4;
     color: #333;
     padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Isso faz a altura total ocupar 100% da tela */
 }
 
-/* Cabeçalho */
 header {
     background-color: #004d99;
     color: white;
@@ -25,7 +27,6 @@ header h1 {
     font-size: 2.5rem;
 }
 
-/* Navegação */
 nav ul {
     list-style-type: none;
     margin-top: 10px;
@@ -53,6 +54,7 @@ main {
     padding: 20px;
     background-color: white;
     border-radius: 8px;
+    flex-grow: 1; /* Faz o conteúdo crescer para preencher o espaço disponível */
 }
 
 article {
