@@ -5,11 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Blog sobre as últimas tendências em tecnologia, inteligência artificial e desenvolvimento web">
     <title>TechBlog - Notícias e Artigos sobre Tecnologia</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Link de salto para conteúdo principal (acessibilidade) -->
     <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+    
+    <!-- Botão de LIBRAS -->
+    <div class="libras-button">
+        <button id="libras-toggle" aria-label="Abrir tradutor para LIBRAS">
+            <span aria-hidden="true">👐</span> LIBRAS
+        </button>
+        <div id="libras-container" class="visually-hidden"></div>
+    </div>
     
     <!-- Cabeçalho semântico -->
     <header role="banner">
@@ -23,9 +31,19 @@
                 <li><a href="#artigos">Artigos</a></li>
                 <li><a href="#sobre">Sobre</a></li>
                 <li><a href="#contato">Contato</a></li>
+                <li><a href="#acessibilidade">Acessibilidade</a></li>
             </ul>
         </nav>
     </header>
+    
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumb" aria-label="Navegação estrutural">
+        <ol>
+            <li><a href="#home">Início</a></li>
+            <li><a href="#artigos">Artigos</a></li>
+            <li><span aria-current="page">Tecnologia</span></li>
+        </ol>
+    </nav>
     
     <!-- Conteúdo principal -->
     <main id="main-content" role="main">
@@ -41,7 +59,31 @@
                     </div>
                 </header>
                 
-                <img src="https://via.placeholder.com/800x400?text=IA+no+Mercado+de+Trabalho" alt="Robô e humano colaborando em um ambiente de escritório" width="800" height="400">
+                <img src="https://via.placeholder.com/800x400?text=IA+no+Mercado+de+Trabalho" 
+                     alt="Robô e humano colaborando em um ambiente de escritório moderno, com telas mostrando gráficos de análise de dados" 
+                     width="800" height="400"
+                     longdesc="#ia-image-desc">
+                
+                <div id="ia-image-desc" class="visually-hidden">
+                    Imagem mostra um robô antropomórfico de cor prateada e um humano de terno sentados lado a lado em uma mesa de escritório.
+                    Eles estão analisando dados em três grandes telas que mostram gráficos complexos. O robô está apontando para um gráfico
+                    de barras enquanto o humano faz anotações em um tablet. Ao fundo, vê-se um espaço de coworking bem iluminado com outras
+                    pessoas trabalhando. A cena transmite colaboração harmoniosa entre humanos e inteligência artificial.
+                </div>
+                
+                <!-- Player de áudio para o artigo -->
+                <div class="audio-player" aria-label="Player de áudio para este artigo">
+                    <h4>Ouvir este artigo:</h4>
+                    <div class="audio-controls">
+                        <button id="play-ia" aria-label="Reproduzir artigo sobre IA">▶️ Reproduzir</button>
+                        <button id="pause-ia" aria-label="Pausar reprodução">⏸️ Pausar</button>
+                        <span id="ia-audio-status" aria-live="polite">Pronto para reprodução</span>
+                    </div>
+                    <audio id="ia-audio" preload="metadata">
+                        <source src="https://example.com/audio/ia-mercado-trabalho.mp3" type="audio/mpeg">
+                        Seu navegador não suporta o elemento de áudio.
+                    </audio>
+                </div>
                 
                 <p>A Inteligência Artificial (IA) está transformando radicalmente o mercado de trabalho. Enquanto muitas pessoas temem ser substituídas por máquinas, especialistas argumentam que a IA criará mais empregos do que eliminará.</p>
                 
@@ -73,7 +115,32 @@
                     </div>
                 </header>
                 
-                <img src="https://via.placeholder.com/800x400?text=Web+Semântica+e+Acessibilidade" alt="Código HTML semântico sendo visualizado em uma tela com símbolos de acessibilidade" width="800" height="400">
+                <img src="https://via.placeholder.com/800x400?text=Web+Semântica+e+Acessibilidade" 
+                     alt="Código HTML semântico sendo visualizado em uma tela com símbolos de acessibilidade ao redor" 
+                     width="800" height="400"
+                     longdesc="#web-image-desc">
+                
+                <div id="web-image-desc" class="visually-hidden">
+                    Imagem mostra uma tela de computador exibindo código HTML5 semântico com elementos como header, nav, main e footer.
+                    Ao redor da tela, há ícones representando acessibilidade: uma figura em cadeira de rodas, um olho com uma barra diagonal
+                    simbolizando deficiência visual, um ouvido com onda sonora e um cérebro representando cognição. No código, destaque para
+                    as tags article e section com comentários explicando sua importância para leitores de tela. A imagem tem um estilo moderno
+                    com tons de azul e branco.
+                </div>
+                
+                <!-- Player de áudio para o artigo -->
+                <div class="audio-player" aria-label="Player de áudio para este artigo">
+                    <h4>Ouvir este artigo:</h4>
+                    <div class="audio-controls">
+                        <button id="play-web" aria-label="Reproduzir artigo sobre Web Semântica">▶️ Reproduzir</button>
+                        <button id="pause-web" aria-label="Pausar reprodução">⏸️ Pausar</button>
+                        <span id="web-audio-status" aria-live="polite">Pronto para reprodução</span>
+                    </div>
+                    <audio id="web-audio" preload="metadata">
+                        <source src="https://example.com/audio/web-semantica.mp3" type="audio/mpeg">
+                        Seu navegador não suporta o elemento de áudio.
+                    </audio>
+                </div>
                 
                 <p>A web semântica não é apenas uma boa prática de desenvolvimento - é uma questão de inclusão digital. Ao utilizar os elementos HTML corretos, tornamos a internet acessível para milhões de pessoas que dependem de leitores de tela e outras tecnologias assistivas.</p>
                 
@@ -105,7 +172,31 @@
                     </div>
                 </header>
                 
-                <img src="https://via.placeholder.com/800x400?text=Computação+Quântica" alt="Representação artística de um computador quântico com partículas subatômicas" width="800" height="400">
+                <img src="https://via.placeholder.com/800x400?text=Computação+Quântica" 
+                     alt="Representação artística de um computador quântico com partículas subatômicas flutuando" 
+                     width="800" height="400"
+                     longdesc="#quantica-image-desc">
+                
+                <div id="quantica-image-desc" class="visually-hidden">
+                    Imagem artística de um computador quântico futurista. No centro, uma esfera azul brilhante representa o processador quântico,
+                    cercado por anéis metálicos resfriados a temperaturas extremamente baixas. Partículas subatômicas brilhantes em tons de azul
+                    e roxo flutuam ao redor, conectadas por linhas de energia que formam padrões complexos. Ao fundo, fórmulas matemáticas e
+                    equações quânticas flutuam desfocadas. A imagem transmite um senso de tecnologia avançada e mistério científico.
+                </div>
+                
+                <!-- Player de áudio para o artigo -->
+                <div class="audio-player" aria-label="Player de áudio para este artigo">
+                    <h4>Ouvir este artigo:</h4>
+                    <div class="audio-controls">
+                        <button id="play-quantica" aria-label="Reproduzir artigo sobre Computação Quântica">▶️ Reproduzir</button>
+                        <button id="pause-quantica" aria-label="Pausar reprodução">⏸️ Pausar</button>
+                        <span id="quantica-audio-status" aria-live="polite">Pronto para reprodução</span>
+                    </div>
+                    <audio id="quantica-audio" preload="metadata">
+                        <source src="https://example.com/audio/computacao-quantica.mp3" type="audio/mpeg">
+                        Seu navegador não suporta o elemento de áudio.
+                    </audio>
+                </div>
                 
                 <p>A computação quântica promete revolucionar áreas como criptografia, pesquisa de medicamentos e modelagem climática. Enquanto os computadores tradicionais usam bits (0 ou 1), os quânticos usam qubits, que podem existir em múltiplos estados simultaneamente.</p>
                 
@@ -149,6 +240,11 @@
                 <p>Nosso blog segue as diretrizes WCAG 2.1 AA para garantir que todos possam acessar nosso conteúdo.</p>
                 <p>Encontrou algum problema de acessibilidade? <a href="#contato">Nos avise</a>.</p>
             </section>
+            
+            <section aria-labelledby="dark-mode-toggle">
+                <h4 id="dark-mode-toggle">Modo de Exibição</h4>
+                <button id="toggle-theme" aria-pressed="false">Alternar para Modo Escuro</button>
+            </section>
         </aside>
     </main>
     
@@ -161,8 +257,11 @@
                 <li><a href="#privacidade">Política de Privacidade</a></li>
                 <li><a href="#termos">Termos de Uso</a></li>
                 <li><a href="#mapa">Mapa do Site</a></li>
+                <li><a href="#acessibilidade">Declaração de Acessibilidade</a></li>
             </ul>
         </nav>
     </footer>
+
+    <script src="scripts.js"></script>
 </body>
 </html>

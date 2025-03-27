@@ -1,0 +1,249 @@
+/* Estilos base - Light Mode (padrão) */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --header-bg: #005a9c;
+    --header-text: #ffffff;
+    --link-color: #0066cc;
+    --link-hover: #004499;
+    --border-color: #eeeeee;
+    --footer-bg: #f5f5f5;
+    --footer-text: #333333;
+    --button-bg: #005a9c;
+    --button-text: #ffffff;
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #121212;
+        --text-color: #e0e0e0;
+        --header-bg: #0d47a1;
+        --header-text: #ffffff;
+        --link-color: #bb86fc;
+        --link-hover: #9a67ea;
+        --border-color: #333333;
+        --footer-bg: #1e1e1e;
+        --footer-text: #e0e0e0;
+        --button-bg: #bb86fc;
+        --button-text: #000000;
+    }
+    
+    img {
+        opacity: 0.9;
+        filter: brightness(0.9);
+    }
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+header, footer, nav, main, article, section, aside {
+    display: block;
+}
+
+header {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: var(--header-text);
+    text-decoration: none;
+    padding: 5px;
+}
+
+nav a:hover, nav a:focus {
+    text-decoration: underline;
+    outline: 2px solid var(--header-text);
+}
+
+article {
+    margin-bottom: 50px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 30px;
+}
+
+h1, h2, h3, h4 {
+    color: var(--header-bg);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--header-bg);
+    color: var(--header-text);
+    padding: 8px;
+    z-index: 100;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+    padding: 20px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+time {
+    font-style: italic;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.article-meta {
+    font-size: 0.9em;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+a {
+    color: var(--link-color);
+}
+
+a:hover {
+    color: var(--link-hover);
+}
+
+button {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 5px 0;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+.breadcrumb {
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+
+.breadcrumb ol {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.breadcrumb li {
+    margin-right: 5px;
+}
+
+.breadcrumb li:after {
+    content: '›';
+    margin-left: 5px;
+    color: var(--text-color);
+}
+
+.breadcrumb li:last-child:after {
+    content: '';
+}
+
+.breadcrumb a {
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.libras-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.audio-player {
+    background-color: var(--footer-bg);
+    padding: 10px;
+    border-radius: 5px;
+    margin: 15px 0;
+}
+
+.audio-controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .libras-button {
+        bottom: 10px;
+        right: 10px;
+        font-size: 0.8em;
+    }
+}
+
+/* Classes para dark mode quando ativado via JavaScript */
+body.dark-mode {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --header-bg: #0d47a1;
+    --header-text: #ffffff;
+    --link-color: #bb86fc;
+    --link-hover: #9a67ea;
+    --border-color: #333333;
+    --footer-bg: #1e1e1e;
+    --footer-text: #e0e0e0;
+    --button-bg: #bb86fc;
+    --button-text: #000000;
+}
+
+body.dark-mode img {
+    opacity: 0.9;
+    filter: brightness(0.9);
+}
