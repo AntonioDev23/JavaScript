@@ -7,7 +7,7 @@
     --link-color: #0066cc;
     --link-hover: #004499;
     --border-color: #eeeeee;
-    --footer-bg: #005a9c; /* Alterado para combinar com o header */
+    --footer-bg: #005a9c;
     --footer-text: #ffffff;
     --button-bg: #005a9c;
     --button-text: #ffffff;
@@ -23,7 +23,7 @@
         --link-color: #bb86fc;
         --link-hover: #9a67ea;
         --border-color: #333333;
-        --footer-bg: #0d47a1; /* Alterado para combinar com o header no dark mode */
+        --footer-bg: #0d47a1;
         --footer-text: #ffffff;
         --button-bg: #bb86fc;
         --button-text: #000000;
@@ -90,8 +90,11 @@ h1, h2, h3, h4 {
     color: var(--header-bg);
 }
 
-img {
-    max-width: 100%;
+/* Estilo específico para centralizar APENAS as imagens dos artigos */
+article img {
+    display: block;
+    margin: 20px auto;
+    max-width: 50%;
     height: auto;
     border-radius: 4px;
 }
@@ -293,5 +296,9 @@ body.dark-mode img {
     footer[role="contentinfo"] nav ul {
         flex-direction: column;
         gap: 10px;
+    }
+    
+    article img {
+        margin: 15px auto;
     }
 }
