@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const cityInput = document.getElementById('cityInput'); // Campo de entrada para a cidade.
     const searchButton = document.getElementById('searchButton'); // Botão de pesquisa.
     const weatherInfo = document.getElementById('weatherInfo'); // Área para exibir informações do clima.
-    const apiKey = 'SUA_CHAVE_DE_API'; // Sua chave de API da OpenWeatherMap (substitua pela sua chave).
+    const apiKey = ''; // Sua chave de API da OpenWeatherMap (substitua pela sua chave).
 
     // Adiciona um evento de clique ao botão de pesquisa:
     searchButton.addEventListener('click', function() {
