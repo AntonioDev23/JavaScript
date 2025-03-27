@@ -80,6 +80,7 @@ article {
     margin-bottom: 50px;
     border-bottom: 1px solid var(--border-color);
     padding-bottom: 30px;
+    text-align: center;
 }
 
 h1, h2, h3, h4 {
@@ -90,7 +91,7 @@ img {
     max-width: 50%;
     height: auto;
     border-radius: 4px;
-    justify-content: center;
+    
 }
 
 .skip-link {
@@ -113,6 +114,7 @@ footer {
     padding: 20px;
     text-align: center;
     margin-top: 50px;
+    
 }
 
 time {
