@@ -2,8 +2,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const personagem = document.querySelector('.personagem');
     const labirinto = document.querySelector('.labirinto');
     const saida = document.querySelector('.saida');
-    let posX = 10;
-    let posY = 10;
 
     function createWall(x, y, width, height) {
         const wall = document.createElement('div');
@@ -25,38 +23,28 @@ document.addEventListener('DOMContentLoaded', function() {
         return !(rect1.top > rect2.bottom || rect1.bottom < rect2.top || rect1.left > rect2.right || rect1.right < rect2.left);
     }
 
-    document.addEventListener('keydown', function(event) {
-        const previousPosX = posX;
-        const previousPosY = posY;
+    labirinto.addEventListener('click', function(event) {
+        const targetX = event.clientX - labirinto.getBoundingClientRect().left - personagem.clientWidth / 2;
+        const targetY = event.clientY - labirinto.getBoundingClientRect().top - personagem.clientHeight / 2;
 
-        if (event.key === 'ArrowUp') {
-            posY -= 10;
-        } else if (event.key === 'ArrowDown') {
-            posY += 10;
-        } else if (event.key === 'ArrowLeft') {
-            posX -= 10;
-        } else if (event.key === 'ArrowRight') {
-            posX += 10;
-        }
+        if (targetX >= 0 && targetX <= labirinto.clientWidth - personagem.clientWidth &&
+            targetY >= 0 && targetY <= labirinto.clientHeight - personagem.clientHeight) {
 
-        posX = Math.max(0, Math.min(posX, labirinto.clientWidth - personagem.clientWidth));
-        posY = Math.max(0, Math.min(posY, labirinto.clientHeight - personagem.clientHeight));
+            personagem.style.left = targetX + 'px';
+            personagem.style.top = targetY + 'px';
 
-        const walls = document.querySelectorAll('.wall');
-        for (const wall of walls) {
-            if (checkCollision(personagem, wall)) {
-                posX = previousPosX;
-                posY = previousPosY;
-                break;
+            const walls = document.querySelectorAll('.wall');
+            for (const wall of walls) {
+                if (checkCollision(personagem, wall)) {
+                    personagem.style.left = personagem.style.left;
+                    personagem.style.top = personagem.style.top;
+                    return;
+                }
             }
-        }
 
-        // Converter para números inteiros antes de aplicar ao estilo
-        personagem.style.left = parseInt(posX) + 'px';
-        personagem.style.top = parseInt(posY) + 'px';
-
-        if (posX === saida.offsetLeft && posY === saida.offsetTop) {
-            alert('Você venceu!');
+            if (checkCollision(personagem, saida)) {
+                alert('Você venceu!');
+            }
         }
     });
 });
