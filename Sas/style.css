@@ -14,4 +14,7 @@ header {
   font-family: Arial, Helvetica, sans-serif;
   width: 100vw;
   height: 50vh;
+  button {
+    background-color: darkblue;
+  }
 }/*# sourceMappingURL=style.css.map */
