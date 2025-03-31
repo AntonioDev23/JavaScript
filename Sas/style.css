@@ -16,5 +16,7 @@ header {
   height: 50vh;
   button {
     background-color: darkblue;
+    &:hover {
+      background-color: cornflowerblue;
   }
-}/*# sourceMappingURL=style.css.map */
+}
