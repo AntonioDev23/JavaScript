@@ -52,3 +52,40 @@ function calculateReadingTime() {
     });
 }
 
+// 3.1 Modal para imagens
+function initImageModal() {
+    const images = document.querySelectorAll('article img');
+    images.forEach(img => {
+        img.addEventListener('click', () => {
+            const modal = document.createElement('div');
+            modal.className = 'image-modal';
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <span class="close-modal">&times;</span>
+                    <img src="${img.src}" alt="${img.alt}">
+                    <p>${img.getAttribute('longdesc') || img.alt}</p>
+                </div>
+            `;
+            document.body.appendChild(modal);
+            
+            modal.querySelector('.close-modal').addEventListener('click', () => {
+                modal.remove();
+            });
+        });
+    });
+}
+
+// 3.2 Filtro de artigos por tags
+function filterArticlesByTag(tag) {
+    const articles = document.querySelectorAll('article');
+    articles.forEach(article => {
+        const articleTags = Array.from(article.querySelectorAll('[rel="tag"]'))
+                               .map(t => t.textContent.toLowerCase());
+        if (tag === 'all' || articleTags.includes(tag.toLowerCase())) {
+            article.style.display = 'block';
+        } else {
+            article.style.display = 'none';
+        }
+    });
+}
+
