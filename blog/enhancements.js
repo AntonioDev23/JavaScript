@@ -89,3 +89,35 @@ function filterArticlesByTag(tag) {
     });
 }
 
+// 4.1 Carregamento lazy de imagens
+function lazyLoadImages() {
+    const images = document.querySelectorAll('img[data-src]');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.getAttribute('data-src');
+                img.removeAttribute('data-src');
+                observer.unobserve(img);
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    images.forEach(img => observer.observe(img));
+}
+
+// 4.2 Pré-carregamento de recursos críticos
+function preloadCriticalResources() {
+    const links = [
+        { href: 'styles.css', as: 'style' },
+        { href: 'scripts.js', as: 'script' }
+    ];
+    
+    links.forEach(link => {
+        const preloadLink = document.createElement('link');
+        preloadLink.rel = 'preload';
+        preloadLink.href = link.href;
+        preloadLink.as = link.as;
+        document.head.appendChild(preloadLink);
+    });
+}
