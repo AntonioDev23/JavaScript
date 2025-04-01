@@ -60,6 +60,10 @@ header {
     border-radius: 0 0 8px 8px;
 }
 
+header > h1 {
+    font-size: 40px;
+}
+
 nav ul {
     list-style-type: none;
     padding: 0;
@@ -86,7 +90,7 @@ article {
     padding-bottom: 30px;
 }
 
-h1, h2, h3, h4 {
+h2, h3, h4 {
     color: var(--header-bg);
 }
 
