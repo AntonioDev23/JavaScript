@@ -121,3 +121,44 @@ function preloadCriticalResources() {
         document.head.appendChild(preloadLink);
     });
 }
+
+// 5.1 Comentários via Disqus
+function loadDisqus(articleId, articleTitle) {
+    window.disqus_config = function() {
+        this.page.url = `${window.location.href}#${articleId}`;
+        this.page.identifier = articleId;
+        this.page.title = articleTitle;
+    };
+    
+    const script = document.createElement('script');
+    script.src = 'https://your-blog.disqus.com/embed.js';
+    script.setAttribute('data-timestamp', +new Date());
+    document.body.appendChild(script);
+}
+
+// 5.2 Compartilhamento nas redes sociais
+function initSocialShare() {
+    const shareButtons = document.querySelectorAll('.share-btn');
+    shareButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const platform = e.target.dataset.platform;
+            const url = encodeURIComponent(window.location.href);
+            const title = encodeURIComponent(document.title);
+            
+            let shareUrl;
+            switch(platform) {
+                case 'twitter':
+                    shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
+                    break;
+                case 'facebook':
+                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+                    break;
+                case 'linkedin':
+                    shareUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${url}&title=${title}`;
+                    break;
+            }
+            
+            window.open(shareUrl, '_blank', 'width=600,height=400');
+        });
+    });
+}
