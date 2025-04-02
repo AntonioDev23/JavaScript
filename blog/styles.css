@@ -35,6 +35,10 @@
     }
 }
 
+* {
+    transform-style: preserve-3d;
+}
+
 /* Estilos Gerais */
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
@@ -87,7 +91,7 @@ nav a {
 
 /* Efeito hover: sobe 2px e muda cor */
 nav a:hover {
-    color: #ce7e7e; /* Cor mais clara */
+    color: var(--header-text);
     transform: translateY(-4px); /* Movimento para cima */
 }
 
