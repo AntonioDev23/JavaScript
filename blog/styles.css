@@ -57,7 +57,7 @@ header, footer, nav, main, article, section, aside {
 
 /* Cabeçalho */
 .header-container {
-    background-color: rgb(25, 25, 201);
+    background-color: var(--header-bg);
     display: flex;
     justify-content: space-between; /* Separa logo e nav */
     align-items: center;
