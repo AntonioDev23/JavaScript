@@ -57,6 +57,7 @@ header, footer, nav, main, article, section, aside {
 
 /* Cabeçalho */
 .header-container {
+    background-color: rgb(25, 25, 201);
     display: flex;
     justify-content: space-between; /* Separa logo e nav */
     align-items: center;
@@ -65,12 +66,6 @@ header, footer, nav, main, article, section, aside {
     padding: 15px 20px;
 }
 
-.logo {
-    margin-right: 30px; /* Espaço entre logo e menu */
-}
-
-
-
 header  h1 {
     font-size: 40px;
 }
@@ -78,6 +73,12 @@ header  h1 {
 header  p {
     font-size: 35px;
 }
+
+.logo {
+    margin-right: 30px; /* Espaço entre logo e menu */
+}
+
+
 
 /* Navegação do Header - Efeito hover sem sublinhado */
 nav ul {
