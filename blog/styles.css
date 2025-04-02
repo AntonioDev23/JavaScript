@@ -68,12 +68,12 @@ header  p {
     font-size: 35px;
 }
 
-/* Navegação do Header - Links sem sublinhado com efeito */
+/* Navegação do Header - Efeito hover sem sublinhado */
 nav ul {
     list-style-type: none;
     padding: 0;
     display: flex;
-    gap: 25px; /* Aumentei o espaçamento para melhor visualização */
+    gap: 25px;
     flex-wrap: wrap;
 }
 
@@ -81,31 +81,14 @@ nav a {
     color: var(--header-text);
     text-decoration: none;
     padding: 5px 0;
-    position: relative;
-    transition: all 0.2s ease-out;
+    display: inline-block; /* Fundamental para o efeito */
+    transition: transform 0.2s ease;
 }
 
+/* Efeito hover: sobe 2px e muda cor */
 nav a:hover {
-    color: #cce4ff;
-    transform: translateY(-2px);
-}
-
-nav a::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 1px;
-    bottom: 0;
-    left: 0;
-    background-color: #cce4ff;
-    visibility: hidden;
-    transform: scaleX(0);
-    transition: all 0.2s ease-in-out;
-}
-
-nav a:hover::before {
-    visibility: visible;
-    transform: scaleX(1);
+    color: #ce7e7e; /* Cor mais clara */
+    transform: translateY(-4px); /* Movimento para cima */
 }
 
 /* Conteúdo Principal */
@@ -309,31 +292,6 @@ body.dark-mode img {
     filter: brightness(0.9);
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-        gap: 10px;
-    }
-    
-    .libras-button {
-        bottom: 10px;
-        right: 10px;
-        font-size: 0.8em;
-    }
-    
-    footer[role="contentinfo"] nav ul {
-        flex-direction: column;
-        gap: 10px;
-    }
-    
-    article img {
-        margin: 15px auto;
-    }
-}
-
-/* Adicione ao seu styles.css */
-
 /* Acessibilidade */
 .keyboard-focus {
     outline: 3px solid #005a9c !important;
@@ -405,3 +363,32 @@ body.dark-mode img {
     border-radius: 3px;
     cursor: pointer;
 }
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+    nav a:hover {
+        color: #bb86fc; /* Roxo claro do material design */
+    }
+    
+    .libras-button {
+        bottom: 10px;
+        right: 10px;
+        font-size: 0.8em;
+    }
+    
+    footer[role="contentinfo"] nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    article img {
+        margin: 15px auto;
+    }
+}
+
+
