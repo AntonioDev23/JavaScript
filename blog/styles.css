@@ -87,6 +87,9 @@ nav a {
     padding: 5px 0;
     display: inline-block; /* Fundamental para o efeito */
     transition: transform 0.2s ease;
+    will-change: transform, color; /* Otimização explícita */
+    transform: translateZ(0); /* Forçar aceleração GPU */
+    filter: opacity(1); /* Fix para Chrome */
 }
 
 /* Efeito hover: sobe 2px e muda cor */
