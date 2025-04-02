@@ -85,17 +85,24 @@ nav a {
     color: var(--header-text);
     text-decoration: none;
     padding: 5px 0;
-    display: inline-block; /* Fundamental para o efeito */
-    transition: transform 0.2s ease;
-    will-change: transform, color; /* Otimização explícita */
-    transform: translateZ(0); /* Forçar aceleração GPU */
-    filter: opacity(1); /* Fix para Chrome */
+    display: inline-block;
+    position: relative; /* Melhora a estabilidade do efeito */
+    
+    /* Otimizações de renderização: */
+    transform: perspective(1px) translateZ(0);
+    backface-visibility: hidden;
+    will-change: transform;
+    
+    /* Transição suave apenas para o transform: */
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Efeito hover: sobe 2px e muda cor */
 nav a:hover {
-    color: var(--header-text);
-    transform: translateY(-4px); /* Movimento para cima */
+    color: #ff0; /* Amarelo puro como solicitado */
+    transform: translateY(-4px) scale(1.02); /* Movimento + leve zoom */
+    
+    /* Garante que a cor mude instantaneamente: */
+    transition: color 0s, transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 /* Conteúdo Principal */
