@@ -56,13 +56,20 @@ header, footer, nav, main, article, section, aside {
 }
 
 /* Cabeçalho */
-header {
-    background-color: var(--header-bg);
-    color: var(--header-text);
-    padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 0 0 8px 8px;
+.header-container {
+    display: flex;
+    justify-content: space-between; /* Separa logo e nav */
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
 }
+
+.logo {
+    margin-right: 30px; /* Espaço entre logo e menu */
+}
+
+
 
 header  h1 {
     font-size: 40px;
@@ -74,11 +81,11 @@ header  p {
 
 /* Navegação do Header - Efeito hover sem sublinhado */
 nav ul {
-    list-style-type: none;
-    padding: 0;
     display: flex;
     gap: 25px;
-    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 nav a {
@@ -369,8 +376,8 @@ body.dark-mode img {
 /* Responsividade */
 @media (max-width: 768px) {
     nav ul {
-        flex-direction: column;
-        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
     }
     nav a:hover {
         color: #bb86fc; /* Roxo claro do material design */
@@ -389,6 +396,18 @@ body.dark-mode img {
     
     article img {
         margin: 15px auto;
+    }
+
+    @media (max-width: 768px) {
+        .header-container {
+            flex-direction: column;
+            text-align: center;
+        }
+        
+        .logo {
+            margin: 0 0 15px 0;
+        }
+        
     }
 }
 
