@@ -251,10 +251,11 @@ button:hover {
     cursor: pointer; /* Mostra que é clicável */
 }
 
-/* Efeito hover para TODOS os itens (incluindo "Tecnologia") */
+/* Efeito hover para TODOS os itens - Texto amarelo */
 .breadcrumb a:hover,
 .breadcrumb [aria-current]:hover {
-    background-color: #003d6b; /* Azul mais escuro */
+    background-color: #003d6b;
+    color: #ff0 !important; /* Amarelo igual ao menu */
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
