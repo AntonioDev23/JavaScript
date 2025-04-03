@@ -1,16 +1,10 @@
 /* Estilos base - Light Mode (padrão) */
 :root {
-    --bg-color: #ffffff;
-    --text-color: #333333;
-    --header-bg: #005a9c;
-    --header-text: #ffffff;
-    --link-color: #0066cc;
-    --link-hover: #004499;
-    --border-color: #eeeeee;
-    --footer-bg: #005a9c;
-    --footer-text: #ffffff;
-    --button-bg: #005a9c;
-    --button-text: #ffffff;
+    --text-color: #000000; /* Preto puro (antigo #333333) */
+    --header-bg: #005a9c;  /* Mantém o azul no header */
+    --header-text: #ffffff; /* Mantém texto branco no header */
+    --link-color: #0066cc; /* Azul para links */
+    --link-hover: #004499; /* Azul mais escuro no hover */
 }
 
 /* Dark Mode */
@@ -120,9 +114,11 @@ article {
     padding-bottom: 30px;
 }
 
-h2, h3, h4 {
-    color: var(--header-bg);
+/* Ajuste específico para títulos (exceto header) */
+h1, h2, h3, h4 {
+    color: #000000; /* Preto puro (substitui var(--header-bg)) */
 }
+
 
 /* Estilo específico para centralizar APENAS as imagens dos artigos */
 article img {
@@ -134,10 +130,9 @@ article img {
 }
 
 
-/* Rodapé Centralizado */
 footer[role="contentinfo"] {
-    background-color: var(--footer-bg);
-    color: var(--footer-text);
+    background-color: var(--footer-bg); /* Mantém o azul (ou dark mode) */
+    color: #000000; /* Texto preto (substitui var(--footer-text)) */
     padding: 40px 20px;
     margin-top: 80px;
     display: flex;
@@ -150,27 +145,32 @@ footer[role="contentinfo"] {
     box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
 }
 
-footer[role="contentinfo"] nav ul {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin: 10px 0;
+/* Ajuste para dark mode */
+@media (prefers-color-scheme: dark) {
+    footer[role="contentinfo"] {
+        color: #ffffff; /* Texto branco no dark mode */
+    }
 }
 
-footer[role="contentinfo"] p {
-    margin: 5px 0;
-    max-width: 800px;
-}
-
+/* Links no footer */
 footer[role="contentinfo"] a {
-    color: var(--footer-text);
+    color: #000000; /* Preto no light mode */
     text-decoration: underline;
 }
 
 footer[role="contentinfo"] a:hover {
-    color: var(--button-bg);
-    text-decoration: none;
+    color: #005a9c; /* Azul no hover */
+}
+
+/* Dark mode links */
+@media (prefers-color-scheme: dark) {
+    footer[role="contentinfo"] a {
+        color: #ffffff; /* Branco no dark mode */
+    }
+    
+    footer[role="contentinfo"] a:hover {
+        color: #bb86fc; /* Roxo claro no dark mode */
+    }
 }
 
 /* Elementos de Artigo */
@@ -180,10 +180,19 @@ time {
     opacity: 0.8;
 }
 
+/* Elementos de Artigo - Metadados */
 .article-meta {
     font-size: 0.9em;
-    color: var(--text-color);
-    opacity: 0.8;
+    color: #555555; /* Cinza escuro (substitui var(--text-color)) */
+    opacity: 1; /* Removemos a transparência */
+    margin-bottom: 15px; /* Espaçamento extra */
+    font-style: normal; /* Remove itálico se desejar */
+}
+
+/* Opcional: estilo para o nome do autor */
+.article-meta span {
+    font-weight: 500; /* Pode deixar em negrito */
+    color: #333333; /* Preto mais suave */
 }
 
 a {
@@ -444,5 +453,7 @@ body.dark-mode img {
         
     }
 }
+
+
 
 
