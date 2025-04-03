@@ -210,39 +210,71 @@ button:hover {
     opacity: 0.9;
 }
 
-/* Breadcrumbs */
+/* Estilo dos Breadcrumbs - Versão Uniforme */
 .breadcrumb {
-    padding: 10px 0;
+    padding: 15px 0;
     margin-bottom: 20px;
 }
 
 .breadcrumb ol {
     list-style-type: none;
     padding: 0;
+    margin: 0;
     display: flex;
     flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
 }
 
 .breadcrumb li {
-    margin-right: 5px;
+    position: relative;
 }
 
-.breadcrumb li:after {
-    content: '›';
-    margin-left: 5px;
-    color: var(--text-color);
+/* Separador entre os itens */
+.breadcrumb li:not(:last-child)::after {
+    content: "›";
+    margin: 0 10px;
+    color: var(--header-text);
 }
 
-.breadcrumb li:last-child:after {
-    content: '';
-}
-
-.breadcrumb a {
+/* Estilo UNIFICADO para todos os itens do breadcrumb */
+.breadcrumb a, 
+.breadcrumb [aria-current] {
+    display: inline-block;
+    padding: 8px 16px;
     text-decoration: none;
+    background-color: var(--header-bg); /* Azul do header */
+    color: white;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    cursor: pointer; /* Mostra que é clicável */
 }
 
-.breadcrumb a:hover {
-    text-decoration: underline;
+/* Efeito hover para TODOS os itens (incluindo "Tecnologia") */
+.breadcrumb a:hover,
+.breadcrumb [aria-current]:hover {
+    background-color: #003d6b; /* Azul mais escuro */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Remove o estilo "current" original */
+.breadcrumb [aria-current] {
+    background-color: var(--header-bg); /* Mesma cor dos outros */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .breadcrumb li {
+        padding-right: 12px;
+        font-size: 0.9em;
+    }
+    
+    .breadcrumb a, 
+    .breadcrumb [aria-current] {
+        padding: 4px 8px;
+    }
 }
 
 /* LIBRAS Button */
