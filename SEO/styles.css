@@ -1,4 +1,4 @@
-/* Reset básico */
+/* Reset */
 * {
     margin: 0;
     padding: 0;
@@ -10,18 +10,17 @@ body {
     line-height: 1.6;
     background-color: #f4f4f4;
     color: #333;
+    display: flex;
+    flex-direction: column;
     min-height: 100vh;
 }
 
+/* Header */
 header {
     background-color: #004d99;
     color: white;
     padding: 20px 0;
     text-align: center;
-}
-
-header h1 {
-    font-size: 2.5rem;
 }
 
 nav ul {
@@ -35,41 +34,25 @@ nav ul li {
 }
 
 nav ul li a {
-    text-decoration: none;
     color: white;
     font-weight: bold;
+    text-decoration: none;
 }
 
 nav ul li a:hover {
     text-decoration: underline;
 }
 
-/* Layout principal com propagandas laterais */
+/* Estrutura do site */
 .container-geral {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
     gap: 20px;
+    flex-grow: 1;
     padding: 20px;
 }
 
-aside.propaganda {
-    width: 150px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: center;
-    border-radius: 8px;
-    position: sticky;
-    top: 20px;
-}
-
-aside.propaganda img {
-    width: 100%;
-    height: auto;
-    margin-bottom: 10px;
-}
-
+/* Main */
 main {
     max-width: 800px;
     background-color: white;
@@ -78,49 +61,51 @@ main {
     flex-grow: 1;
 }
 
-article h2 {
+h2 {
     font-size: 2rem;
     color: #333;
 }
 
-section h3 {
+h3 {
     font-size: 1.5rem;
     margin-top: 20px;
-    color: #004d99; /* Azul igual ao header */
+    color: #004d99; /* Igual ao header */
 }
 
-section p {
-    font-size: 1rem;
+p {
     margin: 10px 0;
 }
 
-section a {
+a {
     color: #004d99;
     text-decoration: none;
 }
 
-section a:hover {
+a:hover {
     text-decoration: underline;
 }
 
-/* Rodapé */
-footer {
+/* Aside Propagandas */
+.propaganda {
+    width: 180px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
     text-align: center;
-    padding: 20px 0;
-    background-color: #222;
-    color: white;
-    margin-top: 20px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
 }
 
-/* Responsividade */
-@media (max-width: 900px) {
-    .container-geral {
-        flex-direction: column;
-        align-items: center;
-    }
+.propaganda img {
+    max-width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
 
-    aside.propaganda {
-        width: 100%;
-        position: static;
-    }
+/* Footer */
+footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: auto;
 }
