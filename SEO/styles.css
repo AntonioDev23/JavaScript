@@ -10,7 +10,6 @@ body {
     line-height: 1.6;
     background-color: #f4f4f4;
     color: #333;
-    padding-top: 20px;
     display: flex;
     flex-direction: column;
     min-height: 100vh; /* Isso faz a altura total ocupar 100% da tela */
@@ -56,6 +55,37 @@ main {
     border-radius: 8px;
     flex-grow: 1; /* Faz o conteúdo crescer para preencher o espaço disponível */
 }
+
+aside {
+    background-color: #e9ecef;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+aside h2 {
+    font-size: 1.8rem;
+    color: #004d99;
+    margin-bottom: 10px;
+}
+
+aside ul {
+    list-style-type: none;
+}
+
+aside ul li {
+    margin-bottom: 10px;
+}
+
+aside ul li a {
+    color: #004d99;
+    text-decoration: none;
+}
+
+aside ul li a:hover {
+    text-decoration: underline;
+}
+
 
 article {
     margin-bottom: 30px;
